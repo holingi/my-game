@@ -21,6 +21,7 @@
             line-height: 50px;
             font-size: 20px;
             user-select: none;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -29,9 +30,11 @@
     <canvas id="gameCanvas" width="500" height="500"></canvas>
     <div class="controls">
         <div id="up" class="button">⬆️</div>
-        <div id="left" class="button">⬅️</div>
-        <div id="down" class="button">⬇️</div>
-        <div id="right" class="button">➡️</div>
+        <div>
+            <div id="left" class="button">⬅️</div>
+            <div id="down" class="button">⬇️</div>
+            <div id="right" class="button">➡️</div>
+        </div>
     </div>
     <script src="game.js"></script>
 </body>
