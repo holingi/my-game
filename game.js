@@ -12,24 +12,44 @@ function drawBox() {
     ctx.fillRect(x, y, boxSize, boxSize);
 }
 
-function moveBox(e) {
-    switch(e.key) {
-        case 'ArrowUp':
+function moveBox(direction) {
+    switch(direction) {
+        case 'up':
             y -= speed;
             break;
-        case 'ArrowDown':
+        case 'down':
             y += speed;
             break;
-        case 'ArrowLeft':
+        case 'left':
             x -= speed;
             break;
-        case 'ArrowRight':
+        case 'right':
             x += speed;
             break;
     }
     drawBox();
 }
 
-document.addEventListener('keydown', moveBox);
+document.addEventListener('keydown', (e) => {
+    switch(e.key) {
+        case 'ArrowUp':
+            moveBox('up');
+            break;
+        case 'ArrowDown':
+            moveBox('down');
+            break;
+        case 'ArrowLeft':
+            moveBox('left');
+            break;
+        case 'ArrowRight':
+            moveBox('right');
+            break;
+    }
+});
+
+document.getElementById('up').addEventListener('touchstart', () => moveBox('up'));
+document.getElementById('down').addEventListener('touchstart', () => moveBox('down'));
+document.getElementById('left').addEventListener('touchstart', () => moveBox('left'));
+document.getElementById('right').addEventListener('touchstart', () => moveBox('right'));
 
 drawBox();
