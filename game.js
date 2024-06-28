@@ -47,9 +47,19 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-document.getElementById('up').addEventListener('touchstart', () => moveBox('up'));
-document.getElementById('down').addEventListener('touchstart', () => moveBox('down'));
-document.getElementById('left').addEventListener('touchstart', () => moveBox('left'));
-document.getElementById('right').addEventListener('touchstart', () => moveBox('right'));
+function handleTouch(event) {
+    const direction = event.target.id;
+    moveBox(direction);
+}
+
+document.getElementById('up').addEventListener('touchstart', handleTouch);
+document.getElementById('down').addEventListener('touchstart', handleTouch);
+document.getElementById('left').addEventListener('touchstart', handleTouch);
+document.getElementById('right').addEventListener('touchstart', handleTouch);
+
+document.getElementById('up').addEventListener('click', handleTouch);
+document.getElementById('down').addEventListener('click', handleTouch);
+document.getElementById('left').addEventListener('click', handleTouch);
+document.getElementById('right').addEventListener('click', handleTouch);
 
 drawBox();
